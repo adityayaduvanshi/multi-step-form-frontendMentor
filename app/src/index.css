@@ -1,0 +1,897 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(./assets/fonts/Ubuntu-Bold.ttf);
+  src: url(./assets/fonts/Ubuntu-Medium.ttf);
+  src: url(./assets/fonts/Ubuntu-Regular.ttf);
+}
+
+:root {
+  --MarineBlue: hsl(213, 96%, 18%);
+  --PurplishBlue: hsl(243, 100%, 62%);
+  --PastelBlue: hsl(228, 100%, 84%);
+  --LightBlue: hsl(206, 94%, 87%);
+  --StrawberryRed: hsl(354, 84%, 57%);
+
+  --CoolGray: hsl(231, 11%, 63%);
+  --LightGray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.5px;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  font-family: "Ubuntu";
+  height: 100vh;
+  width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Magnolia);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+  height: 600px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #e9e9e9;
+  padding: 15px;
+  margin: 20px;
+  background-color: var(--White);
+}
+
+@media screen and (max-width: 1000px) {
+  .app-container {
+    flex-direction: column;
+    height: 700px;
+  }
+
+  body {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  body {
+    width: 470px;
+    height: 700px;
+  }
+
+  .app-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--Magnolia);
+    height: 720px;
+  }
+}
+
+/* ====================================================
+=============== PROGRESS COMPONENT =================
+==================================================== */
+
+.progress-container {
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: initial;
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.step-container {
+  display: flex;
+  padding: 10px;
+}
+
+.step-number {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--LightBlue);
+  color: var(--White);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-number-active {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  color: black;
+  border: 1px solid var(--LightBlue);
+  background-color: var(--LightBlue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.step-text {
+  padding-left: 10px;
+}
+
+.step-text p {
+  padding: 2px;
+  color: var(--PastelBlue);
+}
+
+.step-text h4 {
+  padding: 2px;
+  color: var(--White);
+}
+
+@media screen and (max-width: 1000px) {
+  .progress-container {
+    width: 100%;
+    height: 185px;
+    background-image: url(./assets/images/bg-sidebar-desktop-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+  }
+
+  .step-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+  }
+
+  .step-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .progress-container {
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-container {
+    width: 70px;
+  }
+
+  .step-text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .progress-container {
+    width: 470px;
+    background-image: url(./assets/images/bg-sidebar-mobile.svg);
+    align-items: flex-start;
+  }
+
+  .step-container {
+    width: 50px;
+  }
+}
+
+/* ======================================================
+============ FORM COMPONENT ==========================
+====================================================== */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(900px - 275px);
+  padding: 20px 70px;
+}
+
+.form-title {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: space-around;
+}
+
+.form-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-title h1 {
+  color: var(--MarineBlue);
+  font-weight: bolder;
+}
+
+.form-title p {
+  color: var(--CoolGray);
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button-go-back {
+  padding: 0;
+  border: none;
+  color: var(--CoolGray);
+  background-color: transparent;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.button-go-back:hover {
+  color: var(--MarineBlue);
+  cursor: pointer;
+}
+
+.button-go-back:active {
+  opacity: 60%;
+}
+
+.button-go-back:disabled {
+  color: var(--CoolGray);
+  opacity: none;
+}
+
+.button-go-back-off {
+  visibility: hidden;
+}
+
+.button-next {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 7px;
+  color: var(--White);
+  background-color: var(--MarineBlue);
+  font-weight: bolder;
+  right: 0;
+  width: 126px;
+  transition: 0.5s;
+}
+
+.button-next:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.button-next:active {
+  opacity: 60%;
+}
+
+.button-submit {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 7px;
+  color: var(--White);
+  background-color: var(--PurplishBlue);
+  font-weight: bolder;
+  right: 0;
+  width: 126px;
+  transition: 0.5s;
+}
+
+.button-submit:disabled {
+  background-color: var(--CoolGray);
+  opacity: none;
+}
+
+.button-submit:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.button-submit:active {
+  opacity: 60%;
+}
+
+.loading-spinner-button {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: var(--StrawberryRed);
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 1000px) {
+  .form-body {
+    height: 365px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form-container {
+    padding: 0;
+    width: 400px;
+    padding: 20px 10px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .form-container {
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    top: 100px;
+    background-color: var(--White);
+    padding: 20px 20px;
+    align-self: center;
+    box-shadow: 5px 10px 18px #e9e9e9;
+    border-radius: 10px;
+  }
+
+  .form-body {
+    height: 100%;
+  }
+}
+
+/* ===================================================
+=========== PERSONAL INFO COMPONENT ===============
+=================================================== */
+
+.personal-info-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  justify-content: space-around;
+}
+
+.text-input-container .label-container {
+  padding: 5px 0;
+  font-size: 13px;
+  font-weight: bolder;
+  color: var(--MarineBlue);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-input-container input {
+  padding: 13px;
+  font-weight: bolder;
+  color: var(--MarineBlue);
+  border: 1px solid var(--LightGray);
+  border-radius: 7px;
+}
+
+.text-input-container input:focus {
+  outline: none;
+  padding: 13px;
+  border: double 1px transparent;
+  border-radius: 7px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ================================================
+============ PLAN COMPONENT ====================
+================================================ */
+
+.plan-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.radio-input-container {
+  border: 1px solid var(--CoolGray);
+  border-radius: 10px;
+  height: 160px;
+  margin: 10px 0;
+  width: 140px;
+}
+
+.radio-input-container:hover {
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--White), var(--White)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.radio-input-container input {
+  position: absolute;
+  height: 160px;
+  width: 140px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+}
+
+.radio-input-container-selected {
+  height: 160px;
+  margin: 10px 0;
+  width: 140px;
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.radio-input-container-selected input {
+  position: absolute;
+  height: 160px;
+  width: 140px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+}
+
+.icon-text-container {
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text label {
+  color: var(--MarineBlue);
+  font-weight: bolder;
+}
+
+.text .price {
+  color: var(--CoolGray);
+}
+
+.text .discount {
+  color: var(--MarineBlue);
+  font-size: 14px;
+  letter-spacing: normal;
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 140px;
+  height: 50px;
+  background-color: var(--Magnolia);
+  border-radius: 10px;
+}
+
+.monthly-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.monthly-btn:hover {
+  color: var(--MarineBlue) !important;
+}
+
+.yearly-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.yearly-btn:hover {
+  color: var(--MarineBlue) !important;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--MarineBlue);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--MarineBlue);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--MarineBlue);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .radio-input-container,
+  .radio-input-container input,
+  .radio-input-container-selected,
+  .radio-input-container-selected input {
+    width: 120px;
+  }
+
+  .toggle-container {
+    padding: 0 80px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .radio-body {
+    flex-direction: column;
+  }
+
+  .radio-input-container,
+  .radio-input-container-selected {
+    height: 100%;
+    width: 100%;
+  }
+
+  .radio-input-container input,
+  .radio-input-container-selected input {
+    height: 75px;
+    width: 310px;
+  }
+
+  .icon-text-container {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .icon {
+    padding-right: 15px;
+  }
+
+  .toggle-container {
+    padding: 0 60px;
+  }
+}
+
+/* ====================================================
+============= ADDON COMPONENT ======================
+==================================================== */
+
+.addons-container {
+  margin: 20px 0;
+  display: flex;
+}
+
+.checkbox-body {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkbox-input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 15px;
+  margin: 7px 0;
+  border: 1px solid var(--LightGray);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.checkbox-input-container:hover {
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--White), var(--White)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.checkbox-input-container-checked {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 15px;
+  margin: 7px 0;
+  cursor: pointer;
+  background-color: var(--Magnolia);
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--Magnolia), var(--Alabaster)),
+    linear-gradient(to right, var(--PurplishBlue), var(--MarineBlue));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.checkbox-input-container input {
+  margin: 10px;
+  height: 17px;
+  width: 17px;
+  cursor: pointer;
+}
+
+.checkbox-input-container-checked input {
+  margin: 10px;
+  height: 17px;
+  width: 17px;
+  cursor: pointer;
+}
+
+.label-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 10px;
+  flex-grow: 2;
+}
+
+.label-text-container label {
+  color: var(--MarineBlue);
+  font-weight: bolder;
+  font-size: 14px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.label-text-container label p {
+  color: var(--CoolGray);
+  font-weight: normal;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--PurplishBlue);
+  font-size: 14px;
+}
+
+/* ==============================================
+======== LAST STEP COMPONENT =================
+============================================== */
+
+.last-step-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chosen-plan-addon-body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Magnolia);
+  padding: 0 15px;
+  border-radius: 10px;
+}
+
+.chosen-plan-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 0;
+  height: 45px;
+}
+
+.chosen-plan-container h3 {
+  font-size: 16px;
+  color: var(--MarineBlue);
+  font-weight: bolder;
+  align-self: center;
+}
+
+.chosen-plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.chosen-plan h3 {
+  font-size: 14px;
+  color: var(--MarineBlue);
+}
+
+.chosen-plan button {
+  border: none;
+  color: var(--CoolGray);
+  text-decoration: underline;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.chosen-plan button:hover {
+  color: var(--PurplishBlue);
+}
+
+.chosen-addons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.chosen-addon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.chosen-addon h4 {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--MarineBlue);
+}
+
+.chosen-addon p {
+  font-size: 14px;
+  color: var(--CoolGray);
+}
+
+.total-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 15px;
+}
+
+.total-container p {
+  font-size: 14px;
+  color: var(--CoolGray);
+}
+
+.total-container h2 {
+  font-size: 18px;
+  color: var(--PurplishBlue);
+}
+
+/* ==============================================
+=========== COMPLETE CONTAINER ===============
+============================================== */
+
+.complete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(900px - 275px);
+  height: 50%;
+  padding: 20px 60px;
+  align-self: center;
+}
+
+.complete-container h1 {
+  color: var(--MarineBlue);
+}
+
+.complete-container p {
+  text-align: center;
+  color: var(--CoolGray);
+}
+
+@media screen and (max-width: 1000px) {
+  .complete-container {
+    height: 485px;
+    padding: 90px 60px 150px 60px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .complete-container {
+    width: 400px;
+    padding: 90px 60px 150px 60px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .complete-container {
+    background-color: var(--White);
+    position: absolute;
+    top: 100px;
+    width: 350px;
+    height: 500px;
+    padding: 120px 60px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #e9e9e9;
+  }
+}
